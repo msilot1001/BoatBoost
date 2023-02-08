@@ -1,3 +1,5 @@
+import net.md_5.bungee.api.ChatMessageType;
+import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.*;
 import org.bukkit.entity.*;
 import org.bukkit.event.Listener;
@@ -25,6 +27,7 @@ public class EventListener implements Listener{
                 ItemStack item = player.getItemInHand();
 
                 if(item != null && item.getType() == Material.LIME_BANNER && player.getInventory().getItemInHand().getItemMeta().getDisplayName().equals("상승기")) {
+                    boat.setGravity(false);
                     Double multiplier = 0.5D;
                     boat.setVelocity(new Vector(boat.getLocation().getDirection().multiply(multiplier).getX(), 0.09D, boat.getLocation().getDirection().multiply(multiplier).getZ()));
                     Location loc = boat.getLocation();
@@ -34,6 +37,7 @@ public class EventListener implements Listener{
 
                     // 점수 부과
                     ScoreboardManager manager = Bukkit.getScoreboardManager();
+                    assert manager != null;
                     Scoreboard board = manager.getMainScoreboard();
                     Objective obj = board.getObjective("boosttime");
 
@@ -44,6 +48,7 @@ public class EventListener implements Listener{
                 }
 
                 if(item != null && item.getType() == Material.WHITE_BANNER && player.getInventory().getItemInHand().getItemMeta().getDisplayName().equals("활공기")) {
+                    boat.setGravity(true);
                     Double multiplier = 0.5D;
                     boat.setVelocity(new Vector(boat.getLocation().getDirection().multiply(multiplier).getX(), -0.04D, boat.getLocation().getDirection().multiply(multiplier).getZ()));
                     Location loc = boat.getLocation();
@@ -63,6 +68,7 @@ public class EventListener implements Listener{
                 }
 
                 if(item != null && item.getType() == Material.FEATHER && player.getInventory().getItemInHand().getItemMeta().getDisplayName().equals("메인로터")) {
+                    boat.setGravity(false);
                     int multiplier = 10;
                     boat.setVelocity(new Vector(0, 0.4D, 0));
                     Location loc = boat.getLocation();
@@ -87,6 +93,7 @@ public class EventListener implements Listener{
                     score.setScore(score.getScore() + multiplier);
                 }
                 if(item != null && item.getType() == Material.COAL && player.getInventory().getItemInHand().getItemMeta().getDisplayName().equals("속도0.5배")) {
+                    boat.setGravity(true);
                     Double multiplier = 0.5D;
                     boat.setVelocity(new Vector(boat.getLocation().getDirection().multiply(multiplier).getX(), 0, boat.getLocation().getDirection().multiply(multiplier).getZ()));
                     Location loc = boat.getLocation();
@@ -106,6 +113,7 @@ public class EventListener implements Listener{
                     score.setScore((int) ((int) score.getScore() + Math.round(multiplier)));
                 }
                 if(item != null && item.getType() == Material.COAL && player.getInventory().getItemInHand().getItemMeta().getDisplayName().equals("속도1배")) {
+                    boat.setGravity(true);
                     int multiplier = 1;
                     boat.setVelocity(new Vector(boat.getLocation().getDirection().multiply(multiplier).getX(), 0, boat.getLocation().getDirection().multiply(multiplier).getZ()));
                     Location loc = boat.getLocation();
@@ -125,6 +133,7 @@ public class EventListener implements Listener{
                     score.setScore(score.getScore() + multiplier);
                 }
                 if(item != null && item.getType() == Material.COAL && player.getInventory().getItemInHand().getItemMeta().getDisplayName().equals("속도1.5배")) {
+                    boat.setGravity(true);
                     Double multiplier = 1.5D;
                     boat.setVelocity(new Vector(boat.getLocation().getDirection().multiply(multiplier).getX(), 0, boat.getLocation().getDirection().multiply(multiplier).getZ()));
                     Location loc = boat.getLocation();
@@ -146,6 +155,7 @@ public class EventListener implements Listener{
 
                 // 사용료 부과
                 if(item != null && item.getType() == Material.COAL && player.getInventory().getItemInHand().getItemMeta().getDisplayName().equals("속도2배")) {
+                    boat.setGravity(true);
                     int multiplier = 2;
                     boat.setVelocity(new Vector(boat.getLocation().getDirection().multiply(multiplier).getX(), 0, boat.getLocation().getDirection().multiply(multiplier).getZ()));
                     Location loc = boat.getLocation();
@@ -165,6 +175,7 @@ public class EventListener implements Listener{
                     score.setScore(score.getScore() + multiplier);
                 }
                 if(item != null && item.getType() == Material.COAL && player.getInventory().getItemInHand().getItemMeta().getDisplayName().equals("속도3배")) {
+                    boat.setGravity(true);
                     int multiplier = 3;
                     boat.setVelocity(new Vector(boat.getLocation().getDirection().multiply(multiplier).getX(), 0, boat.getLocation().getDirection().multiply(multiplier).getZ()));
                     Location loc = boat.getLocation();
@@ -184,6 +195,7 @@ public class EventListener implements Listener{
                     score.setScore(score.getScore() + multiplier);
                 }
                 if(item != null && item.getType() == Material.COAL && player.getInventory().getItemInHand().getItemMeta().getDisplayName().equals("antotaxi5cheatenable_c100125")) {
+                    boat.setGravity(true);
                     int multiplier = 5;
                     boat.setVelocity(new Vector(boat.getLocation().getDirection().multiply(multiplier).getX(), 0, boat.getLocation().getDirection().multiply(multiplier).getZ()));
                     Location loc = boat.getLocation();
